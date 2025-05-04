@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "zpass-bg-large-63060b3c9a3c51b0a8e95740962c88df.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
