@@ -4,7 +4,7 @@
 //
 //  Created by Alex Kim on 5/3/25.
 //  Copyright © 2025 Alexander Kim. All rights reserved.
-//
+//s
 
 import SwiftUI
 import NFCPassportReader
@@ -15,11 +15,16 @@ struct HomeView: View {
     
     @Binding var clearInfo : Bool
     @Binding var showNewEntryView : Bool
-    @Binding var fullName : String
     
     @State private var storedPassports = [URL]()
     @State private var showImport : Bool = false
     @State private var showDetails = false
+    
+    @State private var showPassports = false
+    
+    @State private var image: UIImage?
+    @State private var name = ""
+    
     
     var body: some View {
         ZStack {
@@ -31,7 +36,6 @@ struct HomeView: View {
                 NewEntryView(
                     clearInfo: $clearInfo,
                     showNewEntryView: $showNewEntryView,
-                    fullName: $fullName
                 )
                 .onAppear {
                     if clearInfo {
@@ -41,6 +45,8 @@ struct HomeView: View {
                     }
                 },
             isActive: $showNewEntryView) { Text("") }
+            
+            NavigationLink( destination: SavedPassportView(), isActive: $showDetails) { Text("") }
 
             
 
@@ -51,6 +57,7 @@ struct HomeView: View {
                         .scaledToFit()
                         .frame(width: 250)
                         .padding(.leading, -10)
+    
                     
                     Spacer()
 //                        Image(systemName: "gear")
@@ -60,16 +67,28 @@ struct HomeView: View {
 //                            .padding(.top,5)
                 }
                 .padding(.top,10)
-
-                Image(systemName: "person.crop.circle")
-                    .resizable()
-                    .frame(width: 192, height: 192)
-                    .foregroundStyle(Color(#colorLiteral(red: 0.6919034719, green: 0.702383697, blue: 0.7021996379, alpha: 1)))
-                    .padding([.top],40)
-                    .padding([.bottom])
                 
-                Text( settings.passport != nil ? settings.passport!.lastName + ", " + settings.passport!.firstName : (fullName != "" ?
-                      fullName : "YOUR NAME HERE"))
+                ZStack {
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .frame(width: 192, height: 192)
+                        .foregroundStyle(Color(#colorLiteral(red: 0.6919034719, green: 0.702383697, blue: 0.7021996379, alpha: 1)))
+                        .padding([.top],40)
+                        .padding([.bottom])
+                        .opacity(image != nil  ? 0 : 1)
+                    
+                    Image(uiImage:image ?? UIImage(named:"head")!)
+                        .resizable()
+                        .renderingMode(.original)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 192, height: 192)
+                        .padding([.leading], 10.0)
+                        .opacity(image != nil ? 1 : 0)
+                }
+
+
+                
+                Text( name != "" ? name : "YOUR NAME HERE")
                     .font(.title)
                     .foregroundColor(.gray)
                     .padding(.leading,1)
@@ -79,10 +98,34 @@ struct HomeView: View {
                     .frame(height: 2)
                     .overlay(Color(#colorLiteral(red: 0.6919034719, green: 0.702383697, blue: 0.7021996379, alpha: 1)))
                     .padding(.horizontal,10)
-
-
                 
-
+                
+                ForEach(self.storedPassports, id: \.self) { item in
+                    
+                    Button(action: {
+                        if let data = try? Data(contentsOf: item),
+                           let passport = loadPassport(data:data) {
+                            self.settings.passport = passport
+                            self.showDetails = true
+                        }
+                    }) {
+                        Spacer()
+                        Text("ID: " + item.deletingPathExtension().lastPathComponent)
+                            .frame(height: 70)
+                            .lineLimit(1)
+                        
+                        Spacer()
+                    }
+                    .background (Color("zpurple"))
+                    .foregroundStyle(.white)
+                    .border(Color("zpurple"), width: 2)
+                    .font(.title)
+                    .cornerRadius(8)
+                    .padding(.horizontal,10)
+                    
+                }
+                .onDelete(perform: deletePassport)
+                
                 Button(action: {
                     self.showNewEntryView.toggle()
                 }){
@@ -97,32 +140,13 @@ struct HomeView: View {
 
                     
                 }
-                
-                
+            
                 
 
                 Spacer()
             }
             .padding(.horizontal,20)
             
-//            List {
-//                ForEach(self.storedPassports, id: \.self) { item in
-//                    Button(action:{
-//                        if let data = try? Data(contentsOf: item),
-//                           let passport = loadPassport(data:data) {
-//                            self.settings.passport = passport
-//                            self.showDetails = true
-//                        }
-//                    }) {
-//                        HStack {
-//                            Text(item.deletingPathExtension().lastPathComponent)
-//                            Spacer()
-//                        }
-//                    }
-//                    .foregroundColor(.primary)
-//                }
-//                .onDelete(perform: deletePassport)
-//            }
         }
         .fileImporter(
             isPresented: $showImport, allowedContentTypes: [.json,.text],
@@ -142,6 +166,13 @@ struct HomeView: View {
         }
         .onAppear() {
             loadStoredPassports()
+            if storedPassports.count > 0 {
+                if let data = try? Data(contentsOf: storedPassports[0]),
+                   let passport = loadPassport(data:data) {
+                    self.name = passport.lastName + ", " + passport.firstName
+                    self.image = passport.passportImage
+                }
+            }
         }
 //            .toolbar {
 //                ToolbarItem(placement: .primaryAction) {
@@ -227,11 +258,9 @@ struct HomeView_Previews: PreviewProvider {
         let settings = SettingsStore()
         @State var showNewEntryView : Bool = false
         @State var clearInfo : Bool = false
-        @State var fullName : String = ""
         HomeView(
             clearInfo: $clearInfo,
             showNewEntryView: $showNewEntryView,
-            fullName: $fullName
             
         )
             .environmentObject(settings)

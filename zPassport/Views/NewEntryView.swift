@@ -1,9 +1,9 @@
 //
-//  SettingsView.swift
-//  NFCPassportReaderApp
+//  NewEntryView.swift
+//  zPassport
 //
-//  Created by Andy Qua on 10/02/2021.
-//  Copyright © 2021 Andy Qua. All rights reserved.
+//  Created by Alex Kim on 5/3/25.
+//  Copyright © 2025 Alexander Kim. All rights reserved.
 //
 
 import SwiftUI
@@ -27,7 +27,6 @@ struct NewEntryView: View {
     
     @Binding var clearInfo : Bool
     @Binding var showNewEntryView : Bool
-    @Binding var fullName : String
     
     
     private let passportReader = PassportReader()
@@ -40,7 +39,6 @@ struct NewEntryView: View {
                     PassportView(
                         clearInfo: $clearInfo,
                         showNewEntryView: $showNewEntryView,
-                        fullName : $fullName
                     ).onAppear {
                         clearInfo = true
                     },
@@ -211,11 +209,9 @@ struct NewEntryView_Previews: PreviewProvider {
         let settings = SettingsStore()
         @State var showNewEntryView : Bool = false
         @State var clearInfo : Bool = false
-        @State var fullName : String = ""
         NewEntryView(
             clearInfo: $clearInfo,
             showNewEntryView: $showNewEntryView,
-            fullName: $fullName
         )
             .environmentObject(settings)
             .environment( \.colorScheme, .light)

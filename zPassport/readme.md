@@ -1,4 +1,11 @@
-# NFCPassportReaderApp
+#  TODO
+- Actually mint Aleo records from passport data once signature verification is possible
+- Add way to delete saved passports
+
+
+# Forked from NFCPassportReaderApp
+
+All credit to Andy Qua on Github!
 
 This is a sample app showing how to read a e-passport using the NFCPassportReader library 
 

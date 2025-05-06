@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7603AB362DC80DC7007576AB /* SavedPassportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7603AB352DC80DC7007576AB /* SavedPassportView.swift */; };
 		760433BE2DBC49A7009FCEB0 /* NewEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760433BD2DBC49A7009FCEB0 /* NewEntryView.swift */; };
-		760433C42DBD25C4009FCEB0 /* Launch Screen 2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760433C32DBD25C4009FCEB0 /* Launch Screen 2.storyboard */; };
-		760433C62DC2C9B2009FCEB0 /* Launch Screen 3.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760433C52DC2C9B2009FCEB0 /* Launch Screen 3.storyboard */; };
+		760433C42DBD25C4009FCEB0 /* logo-purple.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760433C32DBD25C4009FCEB0 /* logo-purple.storyboard */; };
+		760433C62DC2C9B2009FCEB0 /* logo-white.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760433C52DC2C9B2009FCEB0 /* logo-white.storyboard */; };
 		76550BA62DC4F761001C2096 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = 76550BA52DC4F761001C2096 /* NFCPassportReader */; };
 		76550BA92DC4F774001C2096 /* MRZParser in Frameworks */ = {isa = PBXBuildFile; productRef = 76550BA82DC4F774001C2096 /* MRZParser */; };
 		7675D1F52DC66ECA00A257CF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7675D1F42DC66ECA00A257CF /* HomeView.swift */; };
-		7675D1F72DC7C6E700A257CF /* TODO.MD in Resources */ = {isa = PBXBuildFile; fileRef = 7675D1F62DC7C6E700A257CF /* TODO.MD */; };
+		7675D1F72DC7C6E700A257CF /* README.MD in Resources */ = {isa = PBXBuildFile; fileRef = 7675D1F62DC7C6E700A257CF /* README.MD */; };
 		768995B22DC4FB8A0082FA1C /* Launch Screen 4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 768995B12DC4FB8A0082FA1C /* Launch Screen 4.storyboard */; };
 		A117B7EB2695AD2400E13C18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117B7E62695AD2400E13C18 /* ViewController.swift */; };
 		A117B7EC2695AD2400E13C18 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117B7E72695AD2400E13C18 /* PreviewView.swift */; };
@@ -44,11 +45,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7603AB352DC80DC7007576AB /* SavedPassportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPassportView.swift; sourceTree = "<group>"; };
 		760433BD2DBC49A7009FCEB0 /* NewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryView.swift; sourceTree = "<group>"; };
-		760433C32DBD25C4009FCEB0 /* Launch Screen 2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen 2.storyboard"; sourceTree = "<group>"; };
-		760433C52DC2C9B2009FCEB0 /* Launch Screen 3.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen 3.storyboard"; sourceTree = "<group>"; };
+		760433C32DBD25C4009FCEB0 /* logo-purple.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "logo-purple.storyboard"; sourceTree = "<group>"; };
+		760433C52DC2C9B2009FCEB0 /* logo-white.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "logo-white.storyboard"; sourceTree = "<group>"; };
 		7675D1F42DC66ECA00A257CF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		7675D1F62DC7C6E700A257CF /* TODO.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.MD; sourceTree = "<group>"; };
+		7675D1F62DC7C6E700A257CF /* README.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.MD; sourceTree = "<group>"; };
 		768995B12DC4FB8A0082FA1C /* Launch Screen 4.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen 4.storyboard"; sourceTree = "<group>"; };
 		A117B7E62695AD2400E13C18 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A117B7E72695AD2400E13C18 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
@@ -122,8 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				768995B12DC4FB8A0082FA1C /* Launch Screen 4.storyboard */,
-				760433C32DBD25C4009FCEB0 /* Launch Screen 2.storyboard */,
-				760433C52DC2C9B2009FCEB0 /* Launch Screen 3.storyboard */,
+				760433C32DBD25C4009FCEB0 /* logo-purple.storyboard */,
+				760433C52DC2C9B2009FCEB0 /* logo-white.storyboard */,
 				A16EB22F22A9E9E10008F53F /* zPassport */,
 				A16EB22E22A9E9E10008F53F /* Products */,
 				A1A4C0E325B5D3370070908B /* Frameworks */,
@@ -151,7 +153,7 @@
 				A16EB23922A9E9E20008F53F /* Assets.xcassets */,
 				A16EB23E22A9E9E20008F53F /* Info.plist */,
 				A1DD3F3E22C535F00067255C /* masterList.pem */,
-				7675D1F62DC7C6E700A257CF /* TODO.MD */,
+				7675D1F62DC7C6E700A257CF /* README.MD */,
 			);
 			path = zPassport;
 			sourceTree = "<group>";
@@ -191,6 +193,7 @@
 				A1FDC53525D43AB400D22FF4 /* MRZEntryView.swift */,
 				A1FDC52D25D3F15D00D22FF4 /* SettingsView.swift */,
 				A1816E9B22C9059F00F546A0 /* PassportView.swift */,
+				7603AB352DC80DC7007576AB /* SavedPassportView.swift */,
 				A1C234C125DD19DE003FFD79 /* PassportSummaryView.swift */,
 				A18248C12369D17300581384 /* DetailsView.swift */,
 				A182DE6025DD6F1300341204 /* StoredPassportView.swift */,
@@ -269,11 +272,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7675D1F72DC7C6E700A257CF /* TODO.MD in Resources */,
+				7675D1F72DC7C6E700A257CF /* README.MD in Resources */,
 				A1DD3F3F22C535F10067255C /* masterList.pem in Resources */,
 				A117B7ED2695AD2400E13C18 /* LICENSE in Resources */,
-				760433C62DC2C9B2009FCEB0 /* Launch Screen 3.storyboard in Resources */,
-				760433C42DBD25C4009FCEB0 /* Launch Screen 2.storyboard in Resources */,
+				760433C62DC2C9B2009FCEB0 /* logo-white.storyboard in Resources */,
+				760433C42DBD25C4009FCEB0 /* logo-purple.storyboard in Resources */,
 				768995B22DC4FB8A0082FA1C /* Launch Screen 4.storyboard in Resources */,
 				A16EB23A22A9E9E20008F53F /* Assets.xcassets in Resources */,
 			);
@@ -288,6 +291,7 @@
 			files = (
 				A1CE83AC22C91D1300E3EACF /* StringExt.swift in Sources */,
 				A117B7EB2695AD2400E13C18 /* ViewController.swift in Sources */,
+				7603AB362DC80DC7007576AB /* SavedPassportView.swift in Sources */,
 				A1FDC53625D43AB400D22FF4 /* MRZEntryView.swift in Sources */,
 				A17134BE22C8EF7200C457C3 /* MainView.swift in Sources */,
 				A117B7EE2695AD2400E13C18 /* VisionViewController.swift in Sources */,
@@ -442,14 +446,20 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P972PMJQ98;
 				INFOPLIST_FILE = zPassport/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = zPassport;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zpassport.zpassport;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zpassport.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -466,14 +476,20 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P972PMJQ98;
 				INFOPLIST_FILE = zPassport/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = zPassport;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zpassport.zpassport;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zpassport.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

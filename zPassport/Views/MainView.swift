@@ -1,9 +1,9 @@
 //
 //  MainView.swift
-//  NFCPassportReaderApp
+//  zPassport
 //
-//  Created by Andy Qua on 04/06/2019.
-//  Copyright © 2019 Andy Qua. All rights reserved.
+//  Created by Alex Kim on 5/3/25.
+//  Copyright © 2025 Alexander Kim. All rights reserved.
 //
 
 import SwiftUI
@@ -30,7 +30,6 @@ struct MainView : View {
     @State private var showNewEntryView : Bool = false
     
     @State private var clearInfo : Bool = true
-    @State private var fullName : String = ""
 
     
     @State var page = 0
@@ -42,7 +41,6 @@ struct MainView : View {
             HomeView(
                 clearInfo: $clearInfo,
                 showNewEntryView: $showNewEntryView,
-                fullName : $fullName
             )
             .onAppear {
                 clearInfo = true

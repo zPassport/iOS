@@ -1,5 +1,5 @@
 //
-//  PassportView.swift
+//  SavedPassportView.swift
 //  zPassport
 //
 //  Created by Alex Kim on 5/3/25.
@@ -9,13 +9,11 @@
 import SwiftUI
 import NFCPassportReader
 
-struct PassportView : View {
+struct SavedPassportView : View {
     @EnvironmentObject var settings: SettingsStore
     @State private var showExportPassport : Bool = false
     @State private var savePassportValid : Bool = true
     
-    @Binding var clearInfo : Bool
-    @Binding var showNewEntryView : Bool
     
     var body: some View {
         VStack {
@@ -34,22 +32,6 @@ struct PassportView : View {
 //                }
 //                .padding()
 //            }
-            Button(action: {
-                savePassport(passport: settings.passport!)
-            }) {
-                Spacer()
-                Label("Save", systemImage:"plus.app")
-                    .padding(10)
-                Spacer()
-            }
-            .background(savePassportValid ? Color("zpurple") : Color.black.opacity(0.07)
-            )
-            .foregroundStyle(savePassportValid ? .white : Color(#colorLiteral(red: 0.6919034719, green: 0.702383697, blue: 0.7021996379, alpha: 1))
-            )
-            .font(.title)
-            .cornerRadius(8)
-            .padding(.horizontal,30)
-            .disabled( !savePassportValid)
             
             DetailsView(passport:settings.passport!)
         }
@@ -58,37 +40,9 @@ struct PassportView : View {
     }
 }
 
-extension PassportView {
-    func savePassport(passport : NFCPassportModel)
-    {
-        Task {
-            // Save passport
-            let dict = passport.dumpPassportData(selectedDataGroups: DataGroupId.allCases, includeActiveAuthenticationData: true)
-            if let data = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) {
-                
-                let savedPath = FileManager.cachesFolder.appendingPathComponent("\(passport.documentNumber).json")
-                
-                try? data.write(to: savedPath, options: .completeFileProtection)
-    
-            }
-        
-            print("Saved passport")
-            
-            self.showNewEntryView.toggle()
-
-            
-        }
-    }
-    
-    
-    func shareLogs() {
-        hideKeyboard()
-        PassportUtils.shareLogs()
-    }
-}
 
 #if DEBUG
-struct PassportView_Previews : PreviewProvider {
+struct SavedPassportView_Previews : PreviewProvider {
     static var previews: some View {
         
         let passport : NFCPassportModel
@@ -105,12 +59,10 @@ struct PassportView_Previews : PreviewProvider {
         
         @State var showNewEntryView : Bool = false
         @State var clearInfo : Bool = false
+        @State var fullName : String = ""
         
         return NavigationView {
-            PassportView(
-                clearInfo: $clearInfo,
-                showNewEntryView: $showNewEntryView,
-            )
+            SavedPassportView()
                 .environmentObject(settings)
                 .environment( \.colorScheme, .light)
                 .navigationTitle("WEEE")

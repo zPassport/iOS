@@ -1,9 +1,9 @@
 //
-//  StorePassportView.swift
-//  NFCPassportReaderApp
+//  StoredPassportView.swift
+//  zPassport
 //
-//  Created by Andy Qua on 17/02/2021.
-//  Copyright © 2021 Andy Qua. All rights reserved.
+//  Created by Alex Kim on 5/3/25.
+//  Copyright © 2025 Alexander Kim. All rights reserved.
 //
 
 import SwiftUI
@@ -15,9 +15,15 @@ struct StoredPassportView: View {
     @State private var showDetails = false
     @State private var storedPassports = [URL]()
     
+    @Binding var clearInfo : Bool
+    @Binding var showNewEntryView : Bool
+    
     var body: some View {
         ZStack {
-//            NavigationLink( destination: PassportView(), isActive: $showDetails) { Text("") }
+            NavigationLink( destination: PassportView(
+                clearInfo: $clearInfo,
+                showNewEntryView: $showNewEntryView,
+            ), isActive: $showDetails) { Text("") }
             
             VStack {
                 List {
@@ -39,11 +45,6 @@ struct StoredPassportView: View {
                     .onDelete(perform: deletePassport)
                 }
                 Spacer()
-                if ( !settings.savePassportOnScan ) {
-                    Text( "Imported or scanned passports are currently not being saved.\nThis can be changed in Settings" )
-                        .multilineTextAlignment(.center)
-                        .padding(10)
-                }
             }
 
         }
@@ -143,7 +144,13 @@ struct StoredPassportView_Previews: PreviewProvider {
     static var previews: some View {
         let settings = SettingsStore()
         
-        StoredPassportView()
+        @State var showNewEntryView : Bool = false
+        @State var clearInfo : Bool = false
+
+        StoredPassportView(
+            clearInfo: $clearInfo,
+            showNewEntryView: $showNewEntryView,
+        )
             .environmentObject(settings)
     }
 }
